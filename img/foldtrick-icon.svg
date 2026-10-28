@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+<!-- アプリのアイコン（方向 2）。黄の地に藍の紙、右上の折り返しから白い猫がのぞく。ファビコンにも使う -->
+<defs><clipPath id="r"><rect width="1024" height="1024" rx="230"/></clipPath></defs>
+<g clip-path="url(#r)">
+  <rect width="1024" height="1024" fill="#FFC83D"/>
+  <g transform="translate(650 345) scale(2.87)">
+    <path d="M-52 -12 L-46 -64 L-10 -40 Z" fill="#FFFFFF" stroke="#1A2350" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M-41.8 -27.6 L-38.9 -49.3 L-22 -38.3 Z" fill="#FFE39A"/>
+    <path d="M52 -12 L46 -64 L10 -40 Z" fill="#FFFFFF" stroke="#1A2350" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M41.8 -27.6 L38.9 -49.3 L22 -38.3 Z" fill="#FFE39A"/>
+    <ellipse cx="0" cy="0" rx="60" ry="50" fill="#FFFFFF" stroke="#1A2350" stroke-width="7"/>
+    <circle cx="-21" cy="7" r="9" fill="#1A2350"/>
+    <circle cx="21" cy="7" r="9" fill="#1A2350"/>
+    <path d="M-6 18 Q0 14.5 6 18 L0 24 Z" fill="#1A2350" stroke="#1A2350" stroke-width="2.8" stroke-linejoin="round"/>
+    <path d="M46 17 L70 12 M46 26 L68 29" fill="none" stroke="#1A2350" stroke-width="4.2" stroke-linecap="round"/>
+  </g>
+  <path transform="translate(0 26)" d="M224 260 L420 260 L800 640 L800 836 Q800 900 736 900 L224 900 Q160 900 160 836 L160 324 Q160 260 224 260 Z" fill="#1A2350"/>
+  <path d="M224 260 L420 260 L800 640 L800 836 Q800 900 736 900 L224 900 Q160 900 160 836 L160 324 Q160 260 224 260 Z" fill="#3355D6" stroke="#1A2350" stroke-width="20" stroke-linejoin="round"/>
+  <path transform="translate(14 20)" d="M420 260 L800 640 L470 640 Q420 640 420 590 Z" fill="#1A2350" opacity="0.22"/>
+  <path d="M420 260 L800 640 L470 640 Q420 640 420 590 Z" fill="#FFFFFF" stroke="#1A2350" stroke-width="20" stroke-linejoin="round"/>
+  <g transform="rotate(45 506 346)">
+    <ellipse cx="506" cy="346" rx="50" ry="36" fill="#FFFFFF" stroke="#1A2350" stroke-width="17"/>
+    <path d="M492 364 L492 380 M520 364 L520 380" fill="none" stroke="#1A2350" stroke-width="10" stroke-linecap="round"/>
+  </g>
+  <g transform="rotate(45 604 444)">
+    <ellipse cx="604" cy="444" rx="50" ry="36" fill="#FFFFFF" stroke="#1A2350" stroke-width="17"/>
+    <path d="M590 462 L590 478 M618 462 L618 478" fill="none" stroke="#1A2350" stroke-width="10" stroke-linecap="round"/>
+  </g>
+</g>
+</svg>

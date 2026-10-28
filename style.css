@@ -1,40 +1,199 @@
+/* Sora Endo のアプリ一覧（https://sora-endo-0912.github.io/）
+   色・ふち・影は Fold Trick の方向 2 と同じ値。アプリが増えても、作り手のページはこの 1 組で組む。 */
+
 :root {
-  --paper: #f4ecd8;
-  --ink: #3b2a1a;
-  --muted: #7a6650;
-  --rule: #d8c9a8;
-  --accent: #1e2a4a;
-  --gold: #c8a24a;
+  color-scheme: light dark;
+  --ground: #FFFFFF;
+  --surface: #FFFFFF;
+  --tint: #F4F6FD;
+  --line: #1A2350;
+  --locked-line: #7A84AB;
+  --track: #E3E7F6;
+  --label: #1A2350;
+  --sub: #5A6386;
+  --primary: #3355D6;
+  --primary-pressed: #2443B8;
+  --on-primary: #FFFFFF;
+  --primary-text: #3355D6;
+  --primary-text-hover: #2443B8;
+  --accent: #FFC83D;
+  --on-accent: #1A2350;
+
+  --font-ja: "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", "Zen Maru Gothic", "BIZ UDPGothic", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+  --font-en: "Fredoka", "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", "Arial Rounded MT Bold", sans-serif;
+
+  --border: 3px;
+  --shadow: 0 4px 0 var(--line);
+  --gutter: 16px;
 }
+
 @media (prefers-color-scheme: dark) {
   :root {
-    --paper: #1e1a16;
-    --ink: #eadfc8;
-    --muted: #b3a284;
-    --rule: #4a3f33;
-    --accent: #c8a24a;
-    --gold: #c8a24a;
+    --ground: #0E1226;
+    --surface: #1A2148;
+    --tint: #141A3A;
+    --line: #6670AD;
+    --locked-line: #5B66A0;
+    --track: #2A3160;
+    --label: #F4F6FD;
+    --sub: #A3ABD0;
+    --primary-text: #7D95FF;
+    --primary-text-hover: #A9B9FF;
   }
 }
-* { box-sizing: border-box; }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
 body {
   margin: 0;
-  background: var(--paper);
-  color: var(--ink);
-  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
-  line-height: 1.9;
+  background: var(--ground);
+  color: var(--label);
+  font-family: var(--font-ja);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.8;
+  letter-spacing: 0.04em;
+  overflow-wrap: anywhere;
+  -webkit-font-smoothing: antialiased;
 }
-main { max-width: 680px; margin: 0 auto; padding: 48px 16px 80px; }
-header { border-bottom: 2px solid var(--gold); padding-bottom: 16px; margin-bottom: 32px; }
-h1 { font-size: 1.6rem; margin: 0; letter-spacing: 0.08em; }
-.sub { color: var(--muted); margin: 4px 0 0; }
-h2 { font-size: 1.1rem; margin: 2.2em 0 0.6em; padding-left: 10px; border-left: 4px solid var(--accent); }
-a { color: var(--accent); }
-ul { padding-left: 1.2em; }
-dt { font-weight: bold; margin-top: 1.2em; }
-dd { margin: 0.2em 0 0; }
-dd p { margin: 0 0 0.4em; }
-dd ul { margin: 0 0 0.4em; }
-nav { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 12px; }
-footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.85rem; }
-.placeholder { background: #f6d860; color: #3b2a1a; padding: 0 4px; }
+
+img, svg { display: block; max-width: 100%; }
+p { margin: 0; }
+a { color: var(--primary-text); text-underline-offset: 0.2em; text-decoration-thickness: 2px; }
+a:hover { color: var(--primary-text-hover); }
+:focus-visible { outline: 3px solid var(--primary-text); outline-offset: 3px; border-radius: 6px; }
+.nb { display: inline-block; }
+.vh {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+.en { font-family: var(--font-en); font-weight: 600; letter-spacing: 0.01em; }
+
+.wrap { width: 100%; max-width: 960px; margin: 0 auto; padding: 0 var(--gutter); }
+
+/* 頭（作り手の印と見出し。名前は h1 の 1 か所だけに出す） */
+.intro { padding: 40px 0 8px; }
+.intro__mark { width: 56px; height: 56px; margin-bottom: 18px; }
+.intro h1 {
+  margin: 0;
+  font-size: clamp(28px, 7.4vw, 44px);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+}
+.intro h1 .en { font-weight: 700; letter-spacing: 0; }
+.intro p { margin-top: 10px; color: var(--sub); font-size: 16px; }
+
+/* アプリのカード。1 つのアプリ = <li class="app"> 1 つ（下の HTML のコメントの手順で足す） */
+.apps {
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 22px;
+}
+.app {
+  position: relative;
+  display: grid;
+  gap: 16px;
+  padding: 18px 18px 16px;
+  border: var(--border) solid var(--line);
+  border-radius: 28px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+.app:hover { background: var(--tint); }
+.app:has(.app__link:active) { transform: translateY(4px); box-shadow: 0 0 0 var(--line); }
+.app__top { display: flex; align-items: center; gap: 16px; }
+.app__icon {
+  width: 84px;
+  height: 84px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  border: var(--border) solid var(--line);
+  background: var(--accent);
+  overflow: hidden;
+}
+.app__icon img { width: 100%; height: 100%; }
+.app__title { min-width: 0; display: grid; gap: 4px; }
+.app__name { margin: 0; font-family: var(--font-en); font-weight: 700; font-size: 28px; line-height: 1.1; letter-spacing: 0; }
+.app__link { color: var(--label); text-decoration: none; }
+.app__link:hover { color: var(--label); }
+.app__link::after { content: ""; position: absolute; inset: 0; border-radius: 25px; }
+.app__link:focus-visible { outline: none; }
+.app__link:focus-visible::after { outline: 3px solid var(--primary-text); outline-offset: 5px; }
+.app__sub { font-size: 14px; line-height: 1.55; color: var(--sub); }
+.app__tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.app__tags span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 2px 12px;
+  border-radius: 999px;
+  background: var(--tint);
+  color: var(--sub);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+.app:hover .app__tags span { background: var(--surface); }
+.app__more {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 20px;
+  padding-top: 8px;
+  border-top: 2px solid var(--track);
+  font-size: 14px;
+}
+.app__more a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 800; }
+
+.foot {
+  margin-top: 72px;
+  padding: 28px 0 40px;
+  border-top: 2px solid var(--track);
+  color: var(--sub);
+  font-size: 13px;
+}
+.foot .en { font-size: 14px; }
+
+/* 移動のお知らせ（privacy.html・support.html）と、見つからないページ（404.html） */
+.moved { padding-top: 56px; display: grid; gap: 16px; justify-items: start; }
+.moved h1 { margin: 0; font-size: 24px; font-weight: 800; line-height: 1.4; letter-spacing: 0.02em; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 56px;
+  padding: 10px 22px 10px 18px;
+  border: var(--border) solid var(--line);
+  border-radius: 20px;
+  background: var(--primary);
+  color: var(--on-primary);
+  box-shadow: var(--shadow);
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+.btn:hover { color: var(--on-primary); background: var(--primary-pressed); }
+.btn:active { transform: translateY(4px); box-shadow: 0 0 0 var(--line); }
+.btn svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+@media (min-width: 720px) {
+  :root { --gutter: 32px; }
+  .apps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .intro { padding-top: 64px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; }
+}

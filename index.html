@@ -2,34 +2,64 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Fold Trick</title>
-<meta name="description" content="本を閉じて解く、ふしぎな謎解き。iPhone 向けの短編の謎解きアプリです。">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sora Endo のアプリ</title>
+<meta name="description" content="Sora Endo が作ったアプリの一覧です。">
+<link rel="canonical" href="https://sora-endo-0912.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sora Endo のアプリ">
+<meta property="og:title" content="Sora Endo のアプリ">
+<meta property="og:description" content="Sora Endo が作ったアプリの一覧です。">
+<meta property="og:url" content="https://sora-endo-0912.github.io/">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E1226" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&amp;family=M+PLUS+Rounded+1c:wght@700;800&amp;display=swap">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<main>
-  <header>
-    <h1>Fold Trick</h1>
-    <p class="sub">閉じて開いて解く、折りたたみ謎解き</p>
-    <nav>
-      <a href="support.html">サポート</a>
-      <a href="privacy.html">プライバシーポリシー</a>
-    </nav>
-  </header>
+<main class="wrap">
+  <div class="intro">
+    <img class="intro__mark" src="favicon.svg" width="64" height="64" alt="">
+    <h1><span class="en">Sora Endo</span> のアプリ</h1>
+    <p>作ったアプリの一覧です。</p>
+  </div>
 
-  <p>iPhone Duo なら、本体を折りたたむことが謎を解く鍵になります。ほかの iPhone でも最後まで遊べます。</p>
-
-  <p>真夜中の私設図書館『折本文庫』。夜番のあなたは、閲覧机に一冊だけ開いたまま置かれた本を見つけます。</p>
-  <p>この本は、ただ読むだけでは解けません。閉じると表紙の窓から字がのぞき、開く角度を変えると影が文字になります。</p>
-
-  <h2>どの iPhone でも遊べます</h2>
-  <p>画面の「とじる」で本を閉じ、つまみや端末の傾きで本の開きを変えられます。iPhone Duo では、本体の開閉と開く角度がそのまま本の動きになります。</p>
-
-  <h2>料金</h2>
-  <p>無料です（広告あり）。</p>
-
-  <footer>© 2026 Sora Endo</footer>
+  <!--
+    アプリを足すとき:
+    1. アプリごとにリポジトリを分け、https://sora-endo-0912.github.io/<リポジトリ名>/ で公開する（例: foldtrick）。
+    2. 下の <li class="app"> を 1 つ写し、名前・サブタイトル・タグ・3 つのリンク・アイコン（img/<名前>-icon.svg）を替える。
+       サポートとプライバシーポリシーのリンクの <span class="vh">Fold Trick の</span> も、そのアプリの名前に替える
+       （読み上げのリンクの一覧で、どのアプリのサポートかを聞き分けられるように）。
+    3. 新しい順に上へ並べる。
+    app-ads.txt はこのリポジトリのルートに 1 つだけ置く（AdMob はここを見に来る）。同じ AdMob のアカウントのアプリなら、
+    行は足さなくてよい（運営者 ID の 1 行が全部のアプリに効く）。別の広告網や別のアカウントを使うときだけ行を足す。
+  -->
+  <ul class="apps">
+    <li class="app">
+      <div class="app__top">
+        <div class="app__icon"><img src="img/foldtrick-icon.svg" width="84" height="84" alt=""></div>
+        <div class="app__title">
+          <h2 class="app__name"><a class="app__link" href="foldtrick/">Fold Trick</a></h2>
+          <p class="app__sub"><span class="nb">閉じて開いて解く、</span><span class="nb">折りたたみ謎解き</span></p>
+        </div>
+      </div>
+      <p class="app__tags"><span class="en">iPhone</span><span>謎解き</span></p>
+      <p class="app__more">
+        <a href="foldtrick/support.html"><span class="vh">Fold Trick の</span>サポート</a>
+        <a href="foldtrick/privacy.html"><span class="vh">Fold Trick の</span>プライバシーポリシー</a>
+      </p>
+    </li>
+  </ul>
 </main>
+
+<footer class="foot">
+  <div class="wrap"><p class="en">© 2026 Sora Endo</p></div>
+</footer>
 </body>
 </html>
