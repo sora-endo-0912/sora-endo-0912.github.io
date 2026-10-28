@@ -1,0 +1,40 @@
+:root {
+  --paper: #f4ecd8;
+  --ink: #3b2a1a;
+  --muted: #7a6650;
+  --rule: #d8c9a8;
+  --accent: #1e2a4a;
+  --gold: #c8a24a;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #1e1a16;
+    --ink: #eadfc8;
+    --muted: #b3a284;
+    --rule: #4a3f33;
+    --accent: #c8a24a;
+    --gold: #c8a24a;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+  line-height: 1.9;
+}
+main { max-width: 680px; margin: 0 auto; padding: 48px 16px 80px; }
+header { border-bottom: 2px solid var(--gold); padding-bottom: 16px; margin-bottom: 32px; }
+h1 { font-size: 1.6rem; margin: 0; letter-spacing: 0.08em; }
+.sub { color: var(--muted); margin: 4px 0 0; }
+h2 { font-size: 1.1rem; margin: 2.2em 0 0.6em; padding-left: 10px; border-left: 4px solid var(--accent); }
+a { color: var(--accent); }
+ul { padding-left: 1.2em; }
+dt { font-weight: bold; margin-top: 1.2em; }
+dd { margin: 0.2em 0 0; }
+dd p { margin: 0 0 0.4em; }
+dd ul { margin: 0 0 0.4em; }
+nav { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 12px; }
+footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.85rem; }
+.placeholder { background: #f6d860; color: #3b2a1a; padding: 0 4px; }
